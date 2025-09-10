@@ -1,14 +1,17 @@
+const { string } = require("yargs");
+const { number } = require("yargs");
+
 let items = [];
 let quantities = [];
 
 function addItem(itemName, itemQuantity) {
-    if(itemQuantity < 1) {
-        console.log("Quantity cannot be less than 0");
-        return;
+    if(itemQuantity < 1 || typeof itemQuantity !== "number") {
+        console.log("Quantity cannot be less than 0 and must be a number");
+        return "Quantity cannot be less than 0 and must be a number";
     }
-    if (itemName === undefined) {
-        console.log("Item must have name");
-        return;
+    if (itemName === undefined || itemName === "" || typeof itemName !== "string") {
+        console.log("Item must have name and must be a string");
+        return "Item must have name and must be a string";
     }
 
     items.push(itemName);
@@ -39,7 +42,7 @@ function getTotalItems() {
 }
 
 
-addItem("Test", 1);
+addItem(1, 1);
 console.log(items);
 console.log(quantities);
 console.log();
@@ -48,4 +51,4 @@ console.log(items);
 console.log(quantities);
 
 
-module.exports = {addItem, removeItem, getTotalItems};
+module.exports = { addItem, removeItem, getTotalItems };
