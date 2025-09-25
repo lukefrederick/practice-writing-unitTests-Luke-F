@@ -46,3 +46,20 @@ test("Should return \"Item not in records.\"",
    })
 
 });
+
+describe("getTotalItems", function () {
+
+test("Should return 0 with an empty cart", 
+   function() {
+      expect(cart.getTotalItems()).toBe(0);
+   })
+
+test("Should return the number of items in the cart with items in the cart",
+   function() {
+      cart.addItem("Test", 1)
+      expect(cart.getTotalItems()).toBe(1);
+   }
+)
+
+
+});

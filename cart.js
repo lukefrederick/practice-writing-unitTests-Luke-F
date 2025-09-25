@@ -41,14 +41,16 @@ function removeItem(itemName) {
 }
 
 function getTotalItems() {
-    
+    return items.length;
 }
 
 
 addItem(1, 1);
 console.log(items);
 console.log(quantities);
+console.log(getTotalItems());
 console.log();
+
 removeItem("Test");
 console.log(items);
 console.log(quantities);
